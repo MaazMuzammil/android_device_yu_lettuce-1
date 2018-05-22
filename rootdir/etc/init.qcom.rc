@@ -405,6 +405,7 @@ service devstart_sh /system/vendor/bin/init.qcom.devstart.sh
     oneshot
 
 on property:sys.boot_completed=1
+    restart cameraserver
 
     # Enable ZRAM on boot_complete
     swapon_all /vendor/etc/fstab.qcom
