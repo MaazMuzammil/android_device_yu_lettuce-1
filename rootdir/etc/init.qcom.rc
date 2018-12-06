@@ -89,6 +89,17 @@ on post-fs-data
     mkdir /persist/data/sfs 0700 system system
     mkdir /persist/data/tz 0700 system system
 
+    # Create the directories used by CnE subsystem
+    mkdir /data/connectivity 0771 system system
+    chown system system /data/connectivity
+
+    # Create the directories used by DPM subsystem
+    mkdir /data/dpm 0771 system system
+    chown system system /data/dpm
+
+    mkdir /data/dpm/nsrm 0771 system system
+    chown system system /data/dpm/nsrm
+
     # Create directory used by audio subsystem
     mkdir /data/misc/audio 0770 audio audio
     restorecon_recursive /data/misc/audio
@@ -255,6 +266,11 @@ on property:bluetooth.isEnabled=true
 
 on property:persist.env.fastdorm.enabled=true
     setprop persist.radio.data_no_toggle 1
+
+service cnd /system/vendor/bin/cnd
+    class main
+    user system
+    group system wifi inet radio wakelock net_admin
 
 service irsc_util /system/vendor/bin/irsc_util "/system/vendor/etc/sec_config"
     class main

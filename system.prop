@@ -51,6 +51,10 @@ dhcp.eth0.dns2=1.0.0.1
 dhcp.wlan0.dns1=1.1.1.1
 dhcp.wlan0.dns2=1.0.0.1
 
+# CNE
+persist.cne.feature=1
+persist.cne.override.memlimit=1
+
 # Dalvik
 dalvik.vm.checkjni=false
 dalvik.vm.verify-bytecode=false
