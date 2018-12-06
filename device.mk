@@ -51,10 +51,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     libbt-vendor
 
-PRODUCT_PACKAGES += \
-    android.hardware.bluetooth@1.0-impl \
-    android.hardware.bluetooth@1.0-service
-
 # Camera
 PRODUCT_PACKAGES += \
     camera.msm8916 \
@@ -113,8 +109,8 @@ PRODUCT_COPY_FILES += \
 
 # Health HAL
 PRODUCT_PACKAGES += \
-    android.hardware.health@1.0-impl \
-    android.hardware.health@1.0-service
+    android.hardware.health@2.0-impl \
+    android.hardware.health@2.0-service
 
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
     ro.enable_boot_charger_mode=1
@@ -160,11 +156,7 @@ PRODUCT_PACKAGES += \
 
 # Lights
 PRODUCT_PACKAGES += \
-    lights.msm8916
-
-PRODUCT_PACKAGES += \
-    android.hardware.light@2.0-impl \
-    android.hardware.light@2.0-service
+    android.hardware.light@2.0-service.lettuce
 
 # Media
 PRODUCT_PACKAGES += \
@@ -306,7 +298,7 @@ PRODUCT_BOOT_JARS += \
 
 # USB HAL
 PRODUCT_PACKAGES += \
-    android.hardware.usb@1.0-service.cyanogen_8916
+    android.hardware.usb@1.0-service.lettuce
 
 # USB ID
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
@@ -345,9 +337,9 @@ PRODUCT_PACKAGES += \
     android.hardware.wifi@1.0-service
 
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/p2p_supplicant_overlay.conf:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/p2p_supplicant_overlay.conf \
-    $(LOCAL_PATH)/configs/wpa_supplicant_overlay.conf:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/wpa_supplicant_overlay.conf \
-    $(LOCAL_PATH)/configs/WCNSS_qcom_cfg.ini:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/WCNSS_qcom_cfg.ini \
+    $(LOCAL_PATH)/wifi/p2p_supplicant_overlay.conf:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/p2p_supplicant_overlay.conf \
+    $(LOCAL_PATH)/wifi/wpa_supplicant_overlay.conf:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/wpa_supplicant_overlay.conf \
+    $(LOCAL_PATH)/wifi/WCNSS_qcom_cfg.ini:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/WCNSS_qcom_cfg.ini \
     $(LOCAL_PATH)/wifi/WCNSS_cfg.dat:$(TARGET_COPY_OUT_VENDOR)/firmware/wlan/prima/WCNSS_cfg.dat \
     $(LOCAL_PATH)/wifi/WCNSS_qcom_wlan_nv.bin:$(TARGET_COPY_OUT_VENDOR)/firmware/wlan/prima/WCNSS_qcom_wlan_nv.bin
 

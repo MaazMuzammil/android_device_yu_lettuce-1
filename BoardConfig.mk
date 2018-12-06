@@ -46,7 +46,6 @@ AUDIO_FEATURE_ENABLED_MULTI_VOICE_SESSIONS := true
 AUDIO_FEATURE_ENABLED_NEW_SAMPLE_RATE := true
 BOARD_USES_ALSA_AUDIO := true
 USE_CUSTOM_AUDIO_POLICY := 1
-USE_LEGACY_LOCAL_AUDIO_HAL := true
 
 # Bluetooth
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(DEVICE_PATH)/bluetooth
@@ -87,7 +86,6 @@ PRODUCT_DEX_PREOPT_BOOT_IMAGE_PROFILE_LOCATION := frameworks/base/config/boot-im
 # Display
 MAX_EGL_CACHE_KEY_SIZE := 12*1024
 MAX_EGL_CACHE_SIZE := 2048*1024
-NUM_FRAMEBUFFER_SURFACE_BUFFERS := 3
 
 OVERRIDE_RS_DRIVER := libRSDriver_adreno.so
 
@@ -97,7 +95,6 @@ TARGET_FORCE_HWC_FOR_VIRTUAL_DISPLAYS := true
 TARGET_USES_C2D_COMPOSITION := true
 TARGET_USES_ION := true
 TARGET_USES_NEW_ION_API := true
-USE_OPENGL_RENDERER := true
 
 # Encryption
 TARGET_HW_DISK_ENCRYPTION := true
@@ -125,6 +122,7 @@ TARGET_USES_MKE2FS := true
 # FM
 AUDIO_FEATURE_ENABLED_FM_POWER_OPT := true
 BOARD_HAVE_QCOM_FM := true
+TARGET_QCOM_NO_FM_FIRMWARE := true
 
 # GPS
 TARGET_NO_RPC := true
@@ -145,7 +143,7 @@ TARGET_RECOVERY_DEVICE_MODULES := libinit_msm8916
 # Kernel
 BOARD_DTBTOOL_ARGS := -2
 BOARD_KERNEL_BASE := 0x80000000
-BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.console=ttyHSL0 androidboot.hardware=qcom msm_rtb.filter=0x237 ehci-hcd.park=3 androidboot.bootdevice=7824900.sdhci lpm_levels.sleep_disabled=1 pm.sleep_mode=1 androidboot.btmacaddr=00:00:00:00:00:00
+BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.console=ttyHSL0 androidboot.hardware=qcom msm_rtb.filter=0x237 ehci-hcd.park=3 androidboot.bootdevice=7824900.sdhci lpm_levels.sleep_disabled=1 pm.sleep_mode=1
 BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
 BOARD_KERNEL_IMAGE_NAME := Image
 BOARD_KERNEL_PAGESIZE := 2048
