@@ -289,7 +289,6 @@ PRODUCT_PACKAGES += \
 
 # Telephony / IMS
 PRODUCT_PACKAGES += \
-    ims-ext-common \
     telephony-ext \
     libandroid_net
 
