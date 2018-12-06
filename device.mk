@@ -123,6 +123,16 @@ PRODUCT_PACKAGES += \
     android.hidl.base@1.0 \
     android.hidl.manager@1.0
 
+# IMS
+PRODUCT_PACKAGES += \
+    ims-ext-common \
+    libshim_ims
+
+# IPA Manager
+PRODUCT_PACKAGES += \
+    ipacm \
+    IPACM_cfg.xml
+
 # Init scripts
 PRODUCT_PACKAGES += \
     fstab.qcom \
@@ -130,15 +140,14 @@ PRODUCT_PACKAGES += \
     init.qcom.devstart.sh \
     init.qcom.devwait.sh \
     init.qcom.rc \
+    init.qcom.sh \
+    init.qcom.bt.sh \
     init.qcom.mem.sh \
     init.qcom.power.rc \
     init.qcom.ssr.rc \
     init.qcom.usb.rc \
     init.recovery.qcom.rc \
     ueventd.qcom.rc
-
-PRODUCT_PACKAGES += \
-    init.qcom.bt.sh
 
 # IRSC
 PRODUCT_COPY_FILES += \
@@ -179,6 +188,15 @@ PRODUCT_COPY_FILES += \
     frameworks/av/media/libstagefright/data/media_codecs_google_telephony.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_google_telephony.xml \
     frameworks/av/media/libstagefright/data/media_codecs_google_video_le.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_google_video_le.xml \
     frameworks/av/media/libstagefright/data/media_codecs_google_video.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_google_video.xml
+
+# Netutils
+PRODUCT_PACKAGES += \
+    netutils-wrapper-1.0 \
+    android.system.net.netd@1.0
+
+PRODUCT_PACKAGES += \
+   libandroid_net \
+   libandroid_net_32
 
 # Nubia charger
 PRODUCT_PACKAGES += \
@@ -245,12 +263,8 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     libcnefeatureconfig \
     librmnetctl \
+    libtinyxml \
     libxml2
-
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/data/netmgr_config.xml:$(TARGET_COPY_OUT_VENDOR)/etc/data/netmgr_config.xml \
-    $(LOCAL_PATH)/configs/data/qmi_config.xml:$(TARGET_COPY_OUT_VENDOR)/etc/data/qmi_config.xml \
-    $(LOCAL_PATH)/configs/data/dsi_config.xml:$(TARGET_COPY_OUT_VENDOR)/etc/data/dsi_config.xml
 
 # RenderScript HAL
 PRODUCT_PACKAGES += \
@@ -307,6 +321,11 @@ PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
 PRODUCT_PACKAGES += \
     android.hardware.vibrator@1.0-impl \
     android.hardware.vibrator@1.0-service
+
+# Whitelisted apps
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/privapp-permissions-qti.xml:system/etc/permissions/privapp-permissions-qti.xml \
+    $(LOCAL_PATH)/configs/qti_whitelist.xml:system/etc/sysconfig/qti_whitelist.xml
 
 # Wi-Fi
 PRODUCT_PACKAGES += \

@@ -67,6 +67,9 @@ TARGET_PROCESS_SDK_VERSION_OVERRIDE := \
 	/system/bin/mediaserver=23 \
 	/system/vendor/bin/mm-qcamera-daemon=23
 
+# CNE
+BOARD_USES_QCNE := true
+
 # Dex optimizion
 ifeq ($(HOST_OS),linux)
  ifneq ($(TARGET_BUILD_VARIANT),eng)
@@ -173,6 +176,9 @@ TARGET_USES_MEDIA_EXTENSIONS := true
 DEVICE_PACKAGE_OVERLAYS += $(DEVICE_PATH)/overlay
 PRODUCT_ENFORCE_RRO_TARGETS := framework-res
 
+# Peripheral manager
+TARGET_PER_MGR_ENABLED := true
+
 # Power
 TARGET_HAS_NO_POWER_STATS := true
 TARGET_TAP_TO_WAKE_NODE := "/sys/devices/soc.0/78b9000.i2c/i2c-5/5-0040/double_tap_enable"
@@ -187,7 +193,7 @@ TARGET_SYSTEM_PROP += $(DEVICE_PATH)/system.prop
 DISABLE_RILD_OEM_HOOK := false
 MALLOC_SVELTE := true
 TARGET_RIL_VARIANT := caf
-TARGET_USE_OLD_MNC_FORMAT := true
+PROTOBUF_SUPPORTED := true
 
 # Recovery
 TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/rootdir/etc/fstab.qcom
@@ -206,6 +212,7 @@ BOARD_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy
 
 # Shims
 TARGET_LD_SHIM_LIBS := \
+     /system/lib64/lib-imsvideocodec.so|libshim_ims.so \
     /system/vendor/lib64/libflp.so|libshims_flp.so \
     /system/vendor/lib64/libizat_core.so|libshims_get_process_name.so \
     /system/vendor/lib/libflp.so|libshims_flp.so \
