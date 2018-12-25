@@ -45,7 +45,6 @@ on fs
     symlink /dev/block/platform/soc.0/${ro.boot.bootdevice} /dev/block/bootdevice
     mount_all /vendor/etc/fstab.qcom --early
     mkdir /persist/data 0700 system system
-    restorecon_recursive /persist
 
     # Start HW service manager early
     start hwservicemanager
@@ -171,8 +170,7 @@ on post-fs-data
     mkdir /data/vendor/qti-logkit/logdata/ 2750 system shell
 
     # Create /data/time folder for time-services
-    mkdir /data/time/ 0700 system system
-    restorecon_recursive /data/time
+    mkdir /data/time/ 0770 system system
 
     mkdir /data/audio/ 0770 media audio
 
@@ -287,7 +285,9 @@ on boot
     mkdir /data/misc/display 0770 system graphics
     mkdir /persist/display 0770 system graphics
 
+    # Create directory for QC time services
     mkdir /persist/time 0770 system system
+    restorecon_recursive /persist
 
     # Graphics node permissions
     chmod 0664 /sys/class/graphics/fb0/dyn_pu
@@ -322,7 +322,6 @@ service irsc_util /system/vendor/bin/irsc_util "/system/vendor/etc/sec_config"
     class main
     user root
     oneshot
-
 
 service cnd /system/vendor/bin/cnd
     class main
@@ -462,7 +461,7 @@ service perfd /vendor/bin/perfd
     disabled
 
 service time_daemon /system/vendor/bin/time_daemon
-    class late_start
+    class main
     user root
     group root
     writepid /dev/cpuset/system-background/tasks
