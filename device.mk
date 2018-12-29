@@ -129,11 +129,6 @@ PRODUCT_PACKAGES += \
     ims-ext-common \
     libshim_ims
 
-# IPA Manager
-PRODUCT_PACKAGES += \
-    ipacm \
-    IPACM_cfg.xml
-
 # Init scripts
 PRODUCT_PACKAGES += \
     fstab.qcom \
