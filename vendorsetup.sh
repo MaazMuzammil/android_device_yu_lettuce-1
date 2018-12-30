@@ -1,3 +1,6 @@
+add_lunch_combo aosp_lettuce-eng
+add_lunch_combo aosp_lettuce-userdebug
+
 croot
 
 export TARGET_USE_SDCLANG=false
